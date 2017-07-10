@@ -1,13 +1,12 @@
 header, footer, menu, nav, section{display: block;}
 
+h1, h2, h3, h4{margin-top: 0;padding-top: 20px;}
+h4{padding-top: 10px;}
+
 .space-1{height: 10px;}
 .space-2{height: 20px;}
 .space-3{height: 30px;}
 .space-4{height: 40px;}
 .space-5{height: 50px;}
-
-.filter{
-    -webkit-filter: blur(0.5);
-}
 
 .docs-footer{margin-top: 100px;padding: 50px 0;background-color: #f8f8f8;border-top: 1px solid #e7e7e7;}

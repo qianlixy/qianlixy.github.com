@@ -7,11 +7,12 @@
         <title>博客-芊里</title>
         <!--[if lte IE 9]> <script>location.href='./not-support.html'</script> <![endif]-->
         <link rel="stylesheet" href="js-3rd/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="js-3rd/bootstrap/css/docs.min.css">
         <link rel="stylesheet" href="css/common.css">
     </head>
     <body>
         <!-- 导航栏 -->
-        <nav class="navbar navbar-default navbar-fixed-top filter">
+        <nav class="navbar navbar-default navbar-static-top filter">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -34,61 +35,58 @@
                 </div>
             </div>
         </nav>
-        <div class="space-5"></div>
         <!-- 内容 -->
         <div class="container">
-            <h2>Node.js Express环境搭建</h2>
-            <ul>
-                <li>
-                    <h3>准备环境</h3>
+            <div class="col-md-9">
+                <div class="row">
+                    <h2 id="node-express">Node.js Express环境搭建</h2>
+                </div>
+                <div class="row">
+                    <h3 id="pre-environment">准备环境</h3>
                     <ul>
                         <li>操作系统：Windows10</li>
                         <li>Node.js版本：v8.1.0</li>
-                        <li>Express版本：v4.15.0</li>
                     </ul>
-                </li>
-                <li>
-                    <h3>注意事项</h3>
-                    <ul>
-                        <li>在Windows10操作系统下需要以管理员身份运行命令行，否则将导致安装出错。Windows7操作系统可以不使用管理员身份运行。</li>
-                    </ul>
-                </li>
-                <li>
-                    <h3>安装Node.js</h3>
+                </div>
+                <div class="row">
+                    <h3 id="warn-matter">注意事项</h3>
+                    <p>在Windows10操作系统下需要以管理员身份运行命令行，否则将导致安装出错。Windows7操作系统可以不使用管理员身份运行。</p>
+                </div>
+                <div class="row">
+                    <h3 id="install-node">安装Node.js</h3>
                     <p>
-                        本文不再介绍Node.js环境的安装，不知晓的童鞋可以参考这里
-                        <a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank">Node.js 安装配置 | 菜鸟教程</a>
-                        。
+                        本文不再介绍Node.js环境的安装，不知晓的童鞋们可以参考
+                        <a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank">Node.js 安装配置 | 菜鸟教程</a>。
                     </p>
-                </li>
-                <li>
-                    <h3>安装Express</h3>
+                </div>
+                <div class="row">
+                    <h3 id="install-express">安装Express</h3>
                     <p>
                         本文将Express作为全局安装，任意位置打开命令行窗口，运行以下命令：
                     </p>
                     <pre>npm install -g express<br/>npm install -g express-generator</pre>
-                </li>
-                <li>
-                    <h3>创建应用服务</h3>
+                </div>
+                <div class="row">
+                    <h3 id="create-app">创建应用服务</h3>
                     <p>创建应用服务前，需要选一个位置。挑一个你喜欢的目录，通过命令行进入该目录并执行命令：</p>
                     <pre>express --view=pug myapp</pre>
                     <p>输出：</p>
                     <pre>create : myapp<br/>create : myapp/package.json<br/>create : myapp/app.js<br/>create : myapp/public<br/>create : myapp/routes<br/>create : myapp/routes/index.js<br/>create : myapp/routes/users.js<br/>create : myapp/views<br/>create : myapp/views/index.pug<br/>create : myapp/views/layout.pug<br/>create : myapp/views/error.pug<br/>create : myapp/public/javascripts<br/>create : myapp/bin<br/>create : myapp/bin/www<br/>create : myapp/public/stylesheets<br/>create : myapp/public/stylesheets/style.css<br/>create : myapp/public/images<br><br>install dependencies:<br>  $ cd myapp && npm install<br><br>run the app:<br>  $ DEBUG=myapp:* npm start</pre>
                     <p>输出以上信息时，说明应用服务已经创建了。但是还要进行必要初始化才能让服务运行。执行以下命令：</p>
                     <pre>cd myapp && npm install</pre>
-                </li>
-                <li>
-                    <h3>启动应用服务</h3>
+                </div>
+                <div class="row">
+                    <h3 id="startup-app">启动应用服务</h3>
                     <pre>DEBUG=myapp:* npm start</pre>
                     <p>输出：</p>
                     <pre>> myapp@0.0.0 start E:\githome\nodejs\express-demo\myapp<br>> node ./bin/www<br>Fri, 07 Jul 2017 06:02:05 GMT myapp:server Listening on port <b class="text-danger">3000</b></pre>
                     <p>在启动应用服务时输出以上信息就说明成功启动了。上句输出的着重数字：3000，是该服务访问时的端口。</p>
-                    <p>可通过<code>http://localhost:3000</code>在浏览器中访问我们刚刚创建的应用服务了。</p>
-                    <p>但是注意了哦，不能关闭命令行窗口，否则服务就被强制关闭了。不小心关闭了或下班关机了也没关系的，可以通过启动服务的命令<code>DEBUG=myapp:* npm start</code>启动就行了。</p>
+                    <p>可通过<code>http://localhost:3000</code>在浏览器中访问我们刚刚创建的应用服务。</p>
+                    <p>但是注意了哦，不能关闭命令行窗口，否则服务就被强制关闭了。不小心关闭了或下班关机了也没关系的，可以通过启动服务的命令<code>DEBUG=myapp:* npm start</code>启动。</p>
                     <p>至此，通过Express创建了一个应用服务，但是怎么开发是不是童鞋们还不了解呢，有兴趣的童鞋可以往下接着看。</p>
-                </li>
-                <li>
-                    <h3>Express应用开发</h3>
+                </div>
+                <div class="row">
+                    <h3 id="express-directory">Express应用目录结构</h3>
                     <p>下面是Express应用的目录结构，本文着重介绍应用开发，其他方面不再介绍。</p>
                     <pre>|--app.js                    //资源访问的配置文件<br><!--
                     -->|--package.json<br><!--
@@ -109,7 +107,7 @@
                     --></pre>
                     <ul>
                         <li>
-                            <h4>app.js</h4>
+                            <h4 id="app">app.js</h4>
                             <p>该文件在开发新功能时，需要修改如下两个位置：</p>
                             <pre><!--
                             -->... ...<br><br><!--
@@ -124,7 +122,7 @@
                             --></pre>
                         </li>
                         <li>
-                            <h4>routes/</h4>
+                            <h4 id="routes">routes/</h4>
                             <p>以目录中<code>index.js</code>文件为例，介绍以下代码：</p>
                             <pre><!--
                             -->... ...<br><br><!--
@@ -137,17 +135,43 @@
                             --></pre>
                         </li>
                         <li>
-                            <h4>views/</h4>
+                            <h4 id="views">views/</h4>
                             <p>该目录中的文件是返回到客户端浏览器上的页面，这些文件大多是模板文件，方便开发。</p>
-                            <p>Express默认采用pug模板引擎，具体语法学习可以参考<a href="https://pugjs.org/language/attributes.html" target="_blank">这里</a></p>
+                            <p>Express默认采用pug模板引擎，具体语法学习可以参考<a href="https://pugjs.org/language/attributes.html" target="_blank">这里</a>。</p>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <h3>开发示例</h4>
-                </li>
-            </ul>
+                </div>
+                <div class="row">
+                    <h3 id="develop-example">开发示例</h4>
+                    <p>未完待续...</p>
+                </div>
+            </div>
+
+            <div class="col-md-3" role="complementary">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav bs-docs-sidenav">
+                        <li><a href="#node-express">Node.js Express环境搭建</a></li>
+                        <li><a href="#pre-environment">准备环境</a></li>
+                        <li><a href="#warn-matter">注意事项</a></li>
+                        <li><a href="#install-node">安装Node.js</a></li>
+                        <li><a href="#install-express">安装Express</a></li>
+                        <li><a href="#create-app">创建应用服务</a></li>
+                        <li><a href="#startup-app">启动应用服务</a></li>
+                        <li>
+                            <a href="#express-directory">Express应用目录结构</a>
+                            <ul class="nav">
+                                <li><a href="#app">app.js</a></li>
+                                <li><a href="#routes">routes/</a></li>
+                                <li><a href="#views">views/</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#develop-example">开发示例</a></li>
+                    </ul>
+                    <a class="back-to-top" href="#top">返回顶部</a>
+                </nav>
+            </div>
         </div>
+
         <footer class="docs-footer">
             <div class="container">
                 <h5>小编正处于学习研究中，如有表述不正确的地方请多多包涵，欢迎指正。</h5>
@@ -156,7 +180,9 @@
                 </address>
             </div>
         </footer>
+
         <script src="js-3rd/jquery.min.js"></script>
         <script src="js-3rd/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js-3rd/bootstrap/js/docs.min.js"></script>
     </body>
 </html>
