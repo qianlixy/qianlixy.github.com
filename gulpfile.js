@@ -26,7 +26,7 @@ gulp.task("pug", function() {
 
 //监听文件变动将编译pug模板和同步静态资源
 gulp.task("watch", function() {
-  gulp.watch("src/**/*.*", ["static", "pug"]);
+  gulp.watch("src/**/*", ["static", "pug"]);
 });
 
 gulp.task("default", ["static", "pug", "watch"]);
